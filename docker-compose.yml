@@ -15,7 +15,7 @@ services:
     image: "dynatrace/easytravel-backend"
     ports:
       - "8080"
-    networks:
+    links:
       - mongodb
     environment:
       ET_DATABASE_LOCATION: "easytravel-mongodb:27017"
@@ -26,7 +26,7 @@ services:
     image: dynatrace/easytravel-frontend
     ports:
       - "8080"
-    networks:
+    links:
       - backend
       - mongodb
     environment:
@@ -38,7 +38,7 @@ services:
     image: dynatrace/easytravel-nginx
     ports:
       - "80"
-    networks:
+    links:
       - frontend
       - backend
     environment:
@@ -48,7 +48,7 @@ services:
   loadgen:
     container_name: loadgen-dt
     image: emperorwilson/easytravel-loadgen-dt
-    networks:
+    links:
       - backend
       - frontend
       - www
@@ -56,9 +56,3 @@ services:
       ET_FRONTEND_URL: "http://easytravel-www:80"
       ET_BACKEND_URL: "http://easytravel-www:8080"
       ET_PROBLEMS: "BadCacheSynchronization,CPULoad,DatabaseCleanup,DatabaseSlowdown,ExceptionSpamming,FetchSizeTooSmall,JourneySearchError404,JourneySearchError500,LoginProblems,MediumMemoryLeak,MobileErrors,TravellersOptionBox"
-
-  networks:
-      backend:
-      frontend:
-      mongodb:
-      www:
