@@ -44,7 +44,7 @@ www:
 
 loadgen:
   container_name: loadgen
-  image: "dynatrace/easytravel-loadgen"
+  image: "emperorwilson/easytravel-loadgen-dt"
   links:
   - backend
   - frontend
