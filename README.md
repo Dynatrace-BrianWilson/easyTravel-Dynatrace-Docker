@@ -1,5 +1,7 @@
 # easyTravel-Dynatrace-Docker
 
+This repository is a clone of the [Dynatrace Innovation Lab easyTravel-Docker](https://github.com/dynatrace-innovationlab/easyTravel-Docker) repo. The primary differnce between the two repositories is that the loadgen docker image has been rebuilt to run with Dynatrace RUM instead of AppMon UEM. This required a configuration file change in the easyTravel loadgen script, so a new image was required. The new image can be found on docker hub: [easytravel-loadgen-dt](https://hub.docker.com/r/emperorwilson/easytravel-loadgen-dt/)
+
 ![easyTravel Logo](https://github.com/dynatrace-innovationlab/easyTravel-Builder/blob/images/easyTravel-logo.png)
 
 This project builds and deploys the [Dynatrace easyTravel](https://community.dynatrace.com/community/display/DL/Demo+Applications+-+easyTravel) demo application in [Docker](https://www.docker.com/). All components are readily available on the [Docker Hub](https://hub.docker.com/u/dynatrace/).
@@ -57,17 +59,10 @@ The following problem patterns are supported and triggered through the *loadgen*
 | MobileErrors            | Journey searches and bookings from mobile devices create errors. (no errors created for Tablets)
 | TravellersOptionBox     | Causes an 'ArrayIndexOutOfBoundsException' wrapped in an 'InvalidTravellerCostItemException' if in the review-step of the booking flow in the customer frontend, the last option '2 adults+2 kids' is selected in the combo-box for 'travellers'.
 
-## Monitor easyTravel with Dynatrace AppMon
-
-Please refer to the [Dynatrace-Docker](https://github.com/dynatrace/Dynatrace-Docker) project on how to quickly bring up an entire Dockerized Dynatrace environment. Then, use [Docker Compose](https://docs.docker.com/compose/) with the provided `docker-compose-withDtAppMon.yml` file to have the application monitored by [Dynatrace AppMon](http://www.dynatrace.com/en/application-monitoring/):
-
-```
-docker-compose -f docker-compose-withDtAppMon.yml up
-```
 
 ## Problems? Questions? Suggestions?
 
-This offering is [Dynatrace Community Supported](https://community.dynatrace.com/community/display/DL/Support+Levels#SupportLevels-Communitysupported/NotSupportedbyDynatrace(providedbyacommunitymember)). Feel free to share any problems, questions and suggestions with your peers on the Dynatrace Community's [Application Monitoring & UEM Forum](https://answers.dynatrace.com/spaces/146/index.html).
+This offering is [Dynatrace Community Supported](https://community.dynatrace.com/community/pages/viewpage.action?title=Support+Levels&spaceKey=DL)). Feel free to share any problems, questions and suggestions with your peers on the Dynatrace Community's [Dynatrace Open Q&A Forum](https://answers.dynatrace.com/spaces/482/index.html).
 
 ## License
 
